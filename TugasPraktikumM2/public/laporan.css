@@ -1,0 +1,82 @@
+:root{
+    --tinta:#10252c; --air:#1d7f94; --dalam:#0a3846; --kertas:#eef4f3; --putih:#fff;
+    --garis:#cddcda; --abu:#5a6f74;
+    --rendah:#2d8a57; --sedang:#c98f0b; --tinggi:#dd5128; --sangat:#a3171c;
+    --radius:10px;
+}
+*{box-sizing:border-box}
+html{font-size:16px}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--kertas);color:var(--tinta);line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--air)}
+:focus-visible{outline:3px solid var(--air);outline-offset:2px}
+
+.topbar{background:var(--dalam);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:.9rem 1.5rem}
+.brand{color:#fff;text-decoration:none;font-weight:800;font-size:1.25rem;letter-spacing:-.01em}
+.topbar nav{display:flex;gap:.25rem}
+.topbar nav a{color:#bfe0e7;text-decoration:none;padding:.4rem .8rem;border-radius:999px;font-weight:500;font-size:.95rem}
+.topbar nav a:hover{background:rgba(255,255,255,.1)}
+.topbar nav a.aktif{background:#fff;color:var(--dalam);font-weight:700}
+
+.wadah{width:100%;max-width:980px;margin:2rem auto;padding:0 1.25rem;flex:1}
+.kaki{text-align:center;color:var(--abu);font-size:.85rem;padding:1.25rem}
+
+.dua-kolom{display:grid;grid-template-columns:240px 1fr;gap:1.5rem;align-items:start}
+.kartu{background:var(--putih);border:1px solid var(--garis);border-radius:var(--radius);padding:2rem}
+.kartu.sempit{max-width:620px;margin:0 auto}
+h1{font-size:1.65rem;line-height:1.2;margin:0 0 .5rem;letter-spacing:-.02em}
+h2{font-size:1rem;margin:0 0 1rem}
+.pengantar{color:var(--abu);margin:0 0 1.5rem;max-width:60ch}
+
+/* Alat ukur tinggi air */
+.panel-ukur{background:var(--dalam);color:#fff;border-radius:var(--radius);padding:1.5rem;position:sticky;top:1rem}
+.ukur{display:flex;gap:1rem;align-items:flex-end}
+.ukur-tabung{position:relative;width:70px;height:300px;border:2px solid #7fb6c2;border-top-width:0;border-radius:0 0 12px 12px;background:rgba(255,255,255,.06);overflow:visible}
+.ukur-air{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(#3fb0c6,var(--air));border-radius:0 0 10px 10px;transition:height .5s ease}
+.tanda{position:absolute;left:100%;margin-left:.4rem;font-size:.75rem;color:#bfe0e7;transform:translateY(50%)}
+.tanda::before{content:"";position:absolute;right:100%;top:50%;width:8px;border-top:1px solid #7fb6c2;margin-right:.3rem}
+.ukur-info{font-size:1rem;padding-left:1.4rem}
+.ukur-info strong{font-size:2.2rem;line-height:1}
+.status-teks{font-size:.85rem;color:#bfe0e7;margin:.5rem 0 0}
+
+/* Form */
+.baris{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.bidang{margin-bottom:1.25rem}
+label{display:block;font-weight:700;font-size:.92rem;margin-bottom:.35rem}
+input,select{width:100%;font:inherit;padding:.7rem .85rem;border:1.5px solid var(--garis);border-radius:8px;background:#fff;color:var(--tinta)}
+input:hover,select:hover{border-color:#9fbdb9}
+input:focus,select:focus{border-color:var(--air);outline:none;box-shadow:0 0 0 3px rgba(29,127,148,.2)}
+.bantuan{display:block;color:var(--abu);font-size:.82rem;margin-top:.3rem}
+.galat{display:block;color:var(--sangat);font-size:.85rem;margin-top:.3rem;font-weight:500}
+.galat-ringkas{background:#fdeceb;border:1px solid #f1b9b6;color:var(--sangat);padding:.7rem 1rem;border-radius:8px;margin-bottom:1.25rem;font-weight:500}
+
+.tombol{display:inline-block;background:var(--air);color:#fff;border:2px solid var(--air);font:inherit;font-weight:700;padding:.8rem 1.6rem;border-radius:8px;cursor:pointer;text-decoration:none;transition:background .15s}
+.tombol:hover{background:var(--dalam);border-color:var(--dalam)}
+.tombol:disabled{opacity:.7;cursor:wait}
+.tombol-garis{background:transparent;color:var(--air)}
+.tombol-garis:hover{color:#fff}
+
+/* Konfirmasi */
+.lencana{display:inline-block;padding:.3rem .8rem;border-radius:999px;font-weight:700;font-size:.85rem;color:#fff;margin-bottom:1rem}
+.lencana-rendah{background:var(--rendah)} .lencana-sedang{background:var(--sedang)}
+.lencana-tinggi{background:var(--tinggi)} .lencana-sangat{background:var(--sangat)}
+.rincian{margin:0 0 1.5rem;border-top:1px solid var(--garis)}
+.rincian div{display:grid;grid-template-columns:150px 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--garis)}
+.rincian dt{color:var(--abu);font-size:.92rem}
+.rincian dd{margin:0;font-weight:700}
+.saran{padding:1rem 1.1rem;border-radius:8px;border-left:5px solid;margin-bottom:1.5rem;background:var(--kertas)}
+.saran-rendah{border-color:var(--rendah)} .saran-sedang{border-color:var(--sedang)}
+.saran-tinggi{border-color:var(--tinggi)} .saran-sangat{border-color:var(--sangat)}
+
+/* Hasil kalkulator */
+.hasil{margin-top:1.75rem;padding:1.5rem;background:var(--dalam);color:#fff;border-radius:var(--radius)}
+.hasil-angka{font-size:3rem;font-weight:800;line-height:1;margin-bottom:.4rem}
+
+@media (max-width:760px){
+    .dua-kolom{grid-template-columns:1fr}
+    .panel-ukur{position:static}
+    .ukur-tabung{height:200px}
+    .baris{grid-template-columns:1fr}
+    .rincian div{grid-template-columns:1fr;gap:.1rem}
+    .kartu{padding:1.4rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
